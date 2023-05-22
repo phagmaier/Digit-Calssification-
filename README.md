@@ -16,3 +16,10 @@ Testing data that is the image of a digit.
 
 ## mnist_train.csv
 Training data
+
+## IMPROVMENTS TO MAKE
+Can attempt to vectorize more of the operations there are a few operations I know can defintley be improved. Could also experiment with finding the ideal learning rate or incorportating a dynamic learning rate. Improve starting weights, find a more ideal activation function. Could also add more layers. Need to speed up the computation could also try and incorporate cuda and or any other non linearity to increase the efficiency of the program.
+
+## RESULTS:
+Overall the I found the model provided good results ranging from high 80 to low 90% classification when trained for around 100 epochs on a fraction of the data (1000 or less(there are around 60k training examples)).
+
