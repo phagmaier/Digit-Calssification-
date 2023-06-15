@@ -49,7 +49,7 @@ class NN:
         self.cost_func = np.vectorize(lambda x,y: .5 * (y-x)**2)
         self.deriv_cost_func = np.vectorize(lambda x,y: -1 *(y-x))
         self.sig_deriv_func = np.vectorize(lambda x: x * (1-x))
-        
+        self.data_size = data_size
     def train(self):
         if self.batches and self.batches > 1:
             X,Y = self.batchify(self.X,self.y,self.batches)
@@ -102,7 +102,7 @@ class NN:
                 self.update(update_w2,update_w1,b2_update,b1_update)
                 answers.append(1) if layer_2.argmax() == y else answers.append(0)
             percent = (sum(answers) / len(answers)) * 100
-            avg_cost = total_cost/len(self.data_size)
+            avg_cost = total_cost/self.data_size
             if (i+1) % 10 == 0:
                 print(f'THE AVERAGE COST FOR ITERATION {i+1}: {avg_cost}')
                 print(f'THE PERCENTAGE OF CORRECT ANSWERS: {percent}%')
@@ -163,5 +163,3 @@ class NN:
         print('TESTING RESULTS')
         print('----------------------------------')
         print(f'Percentage of correct classification: {(sum(results)/len(results)) * 100}%')
-        
-        
