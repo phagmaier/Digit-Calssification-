@@ -44,12 +44,12 @@ class NN:
         self.b2 = np.random.rand()
         self.lr = lr
         self.iterations = iterations
+        self.data_size = data_size
         #LAMBDA FUNCTIONS
         self.sig = expit
         self.cost_func = np.vectorize(lambda x,y: .5 * (y-x)**2)
         self.deriv_cost_func = np.vectorize(lambda x,y: -1 *(y-x))
         self.sig_deriv_func = np.vectorize(lambda x: x * (1-x))
-        self.data_size = data_size
     def train(self):
         if self.batches and self.batches > 1:
             X,Y = self.batchify(self.X,self.y,self.batches)
